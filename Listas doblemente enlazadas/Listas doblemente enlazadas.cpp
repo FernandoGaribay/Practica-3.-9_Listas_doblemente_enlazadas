@@ -9,10 +9,6 @@ using namespace std;
 
 void mostrarMenu(char& opc);
 void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista);
-void modificarLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista);
-void visualizarLibro(int& clave, CLista& lista);
-void borrarLibro(int& clave, CLista& lista);
-void borrarLista(CLista& lista);
 void visualizarLista(CLista& lista);
 void salir(bool& r);
 
@@ -36,16 +32,16 @@ int main(void)
             introducirLibro(clave, titulo, autor, libro, lista);
             break;
         case '2':
-            modificarLibro(clave, titulo, autor, libro, lista);
+            //modificarLibro(clave, titulo, autor, libro, lista);
             break;
         case '3':
-            visualizarLibro(clave, lista);
+            //visualizarLibro(clave, lista);
             break;
         case '4':
-            borrarLibro(clave, lista);
+            //borrarLibro(clave, lista);
             break;
         case '5':
-            borrarLista(lista);
+            //borrarLista(lista);
             break;
         case '6':
             visualizarLista(lista);
@@ -69,72 +65,6 @@ void salir(bool& r)
     system("pause");
 }
 
-void visualizarLista(CLista& lista)
-{
-    system("clear");
-    cout << "VISUALIZAR TODOS LOS LIBROS -----------------------\n" << endl;
-    lista.Mostrar();
-    system("pause");
-}
-
-void borrarLista(CLista& lista)
-{
-    system("clear");
-    cout << "BORRAR LISTA DE NODOS ---------------------------- \n" << endl;
-
-    lista.~CLista();
-
-    system("pause");
-}
-
-void borrarLibro(int& clave, CLista& lista)
-{
-    system("clear");
-    cout << "BORRAR LIBRO ----------------------------------- - \n" << endl;
-
-    cout << "Dijite la clave del libro: ";
-    cin >> clave;
-
-    lista.Borrar(clave);
-
-    system("pause");
-}
-
-void visualizarLibro(int& clave, CLista& lista)
-{
-    system("clear");
-    cout << "VISUALIZAR LIBRO ------------------------------- - \n" << endl;
-
-    cout << "Dijite la clave del libro a visualizar: ";
-    cin >> clave;
-
-    lista.visualizarNodo(clave);
-
-    system("pause");
-}
-
-void modificarLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista)
-{
-    system("clear");
-    cout << "MODIFICAR LIBRO -------------------------------- - \n" << endl;
-
-    cout << "Dijite la clave del libro a modificar: ";
-    cin >> clave;
-    cin.ignore();
-
-    cout << "Dijite el titulo del libro: ";
-    getline(cin, titulo);
-
-    cout << "Dijite el autor del libro: ";
-    getline(cin, autor);
-
-    libro = new CLibro(clave, titulo, autor);
-
-    lista.modificarNodo(libro, clave);
-
-    system("pause");
-}
-
 void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista)
 {
     system("clear");
@@ -151,8 +81,15 @@ void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, 
     getline(cin, autor);
 
     libro = new CLibro(clave, titulo, autor);
-    lista.Insertar(libro);
+    lista.InsertarInicio(libro);
 
+    system("pause");
+}
+
+void visualizarLista(CLista& lista) {
+    system("clear");
+    cout << "VISUALIZAR TODOS LOS LIBROS -----------------------\n" << endl;
+    lista.Mostrar();
     system("pause");
 }
 
