@@ -18,5 +18,7 @@ public:
     void Mostrar();
     CNodo* Ultimo();
 protected:
+    CNodo* lista;
     CNodo* primero;
+    CNodo* anterior;
 };

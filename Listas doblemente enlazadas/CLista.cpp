@@ -2,6 +2,8 @@
 
 CLista::CLista() {
     primero = NULL;
+    anterior = NULL;
+    CNodo* lista = NULL;
 }
 
 CLista::~CLista() {
@@ -16,14 +18,18 @@ CLista::~CLista() {
 }
 
 void CLista::InsertarInicio(CLibro* libro) {
-    CNodo* aux;
-    if (ListaVacia()) {
-        aux = new CNodo(libro, primero);
-        primero = aux;
+
+    if (lista == NULL) {
+        CNodo* aux;
+        aux->valor = libro;
+        lista = aux;
     }
-    else {
-        aux = new CNodo(libro, primero->siguiente);
-        primero = aux;
+    else{
+        CNodo* aux;
+        aux->valor = libro;
+        aux->siguiente = lista;
+        lista->anterior = aux;
+        lista = aux;
     }
 }
 
