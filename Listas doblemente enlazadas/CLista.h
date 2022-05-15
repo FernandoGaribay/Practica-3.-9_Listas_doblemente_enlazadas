@@ -7,7 +7,9 @@ public:
     CLista();
     ~CLista();
     void InsertarInicio(CLibro* libro);
+    void modificarNodo(CLibro* libro, int z);
     void Mostrar();
+    CNodo* buscarNodo(int z);
     bool ListaVacia();
     
     enum TOrden { ASC, DESC };

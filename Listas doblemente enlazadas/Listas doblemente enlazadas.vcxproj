@@ -142,7 +142,7 @@
     <ClCompile Include="CLibro.cpp" />
     <ClCompile Include="CLista.cpp" />
     <ClCompile Include="CNodo.cpp" />
-    <ClCompile Include="Listas doblemente enlazadas.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLibro.h" />

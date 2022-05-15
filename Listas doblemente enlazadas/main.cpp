@@ -9,6 +9,7 @@ using namespace std;
 
 void mostrarMenu(char& opc);
 void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista);
+void modificarLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista);
 void visualizarLista(CLista& lista);
 void salir(bool& r);
 
@@ -34,7 +35,7 @@ int main(void)
             introducirLibro(clave, titulo, autor, libro, lista);
             break;
         case '2':
-            //modificarLibro(clave, titulo, autor, libro, lista);
+            modificarLibro(clave, titulo, autor, libro, lista);
             break;
         case '3':
             //visualizarLibro(clave, lista);
@@ -73,6 +74,28 @@ void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, 
 
     libro = new CLibro(clave, titulo, autor);
     lista.InsertarInicio(libro);
+
+    system("pause");
+}
+
+void modificarLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista)
+{
+    system("clear");
+    cout << "MODIFICAR LIBRO -------------------------------- - \n" << endl;
+
+    cout << "Dijite la clave del libro a modificar: ";
+    cin >> clave;
+    cin.ignore();
+
+    cout << "Dijite el titulo del libro: ";
+    getline(cin, titulo);
+
+    cout << "Dijite el autor del libro: ";
+    getline(cin, autor);
+
+    libro = new CLibro(clave, titulo, autor);
+
+    lista.modificarNodo(libro, clave);
 
     system("pause");
 }

@@ -34,6 +34,18 @@ void CLista::InsertarInicio(CLibro* libro) {
     }
 }
 
+void CLista::modificarNodo(CLibro* libro, int z) {
+    CNodo* aux = buscarNodo(z);
+
+    if (aux != NULL) {
+        aux->valor = libro;
+        cout << "\nLibro modificado." << endl;
+    }
+    else {
+        cout << "\nEl nodo no fue encontrado." << endl;
+    }
+}
+
 void CLista::Mostrar() {
     CNodo* aux = lista;
 
@@ -60,6 +72,24 @@ void CLista::Mostrar() {
             aux = aux->anterior;
         }
     }
+}
+
+CNodo* CLista::buscarNodo(int z) {
+    CNodo* aux;
+
+    if (!ListaVacia()) {
+        aux = lista;
+
+        while (aux) {
+            if (aux->valor->getClave() == z)
+                return aux;
+
+            aux = aux->siguiente;
+        }
+        return NULL;
+    }
+    else
+        return NULL;
 }
 
 bool CLista::ListaVacia() {
