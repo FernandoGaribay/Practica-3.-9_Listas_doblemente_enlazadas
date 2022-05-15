@@ -8,6 +8,7 @@ public:
     ~CLista();
     void InsertarInicio(CLibro* libro);
     void Mostrar();
+    bool ListaVacia();
     
     enum TOrden { ASC, DESC };
 

@@ -12,6 +12,8 @@ void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, 
 void visualizarLista(CLista& lista);
 void salir(bool& r);
 
+void pedirDatos(int& clave, std::string& titulo, std::string& autor);
+
 int main(void) 
 {
     CLibro* libro = new CLibro();
@@ -67,24 +69,14 @@ void salir(bool& r)
 
 void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista)
 {
-    system("clear");
-    cout << "INTRODUCIR LIBRO EN LA LISTA ----------------------\n" << endl;
-
-    cout << "Dijite la clave del libro: ";
-    cin >> clave;
-    cin.ignore();
-
-    cout << "Dijite el titulo del libro: ";
-    getline(cin, titulo);
-
-    cout << "Dijite el autor del libro: ";
-    getline(cin, autor);
+    pedirDatos(clave, titulo, autor);
 
     libro = new CLibro(clave, titulo, autor);
     lista.InsertarInicio(libro);
 
     system("pause");
 }
+
 
 void visualizarLista(CLista& lista) {
     system("clear");
@@ -97,7 +89,7 @@ void mostrarMenu(char& opc)
 {
     system("clear");
     cout << "MENU --------------------------\n" << endl;
-    cout << "1) Introduccir libro en la lista" << endl;
+    cout << "1) Introduccir libro a la lista" << endl;
     cout << "2) Modificar libro" << endl;
     cout << "3) Visualizar libro" << endl;
     cout << "4) Borrar libro" << endl;
@@ -107,4 +99,21 @@ void mostrarMenu(char& opc)
 
     cout << "\n- Dijite una opcion: ";
     cin >> opc;
+}
+
+void pedirDatos(int& clave, std::string& titulo, std::string& autor)
+{
+    system("clear");
+    cout << "INTRODUCIR LIBRO EN LA LISTA ----------------------\n" << endl;
+
+    cout << "Dijite la clave del libro: ";
+    cin >> clave;
+    cin.ignore();
+
+    cout << "Dijite el titulo del libro: ";
+    getline(cin, titulo);
+
+    cout << "Dijite el autor del libro: ";
+    getline(cin, autor);
+    cout << endl;
 }
