@@ -45,6 +45,15 @@ void CLista::modificarNodo(CLibro* libro, int z) {
         cout << "\nEl nodo no fue encontrado." << endl;
 }
 
+void CLista::visualizarNodo(int z) {
+    CNodo* aux = buscarNodo(z);
+
+    if (aux != NULL)
+        aux->valor->mostrarDatos();
+    else
+        cout << "\nEl nodo no fue encontrado." << endl;
+}
+
 void CLista::Mostrar() {
     CNodo* aux = lista;
 
