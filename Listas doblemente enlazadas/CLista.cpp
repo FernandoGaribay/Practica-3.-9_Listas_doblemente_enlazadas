@@ -41,9 +41,8 @@ void CLista::modificarNodo(CLibro* libro, int z) {
         aux->valor = libro;
         cout << "\nLibro modificado." << endl;
     }
-    else {
+    else
         cout << "\nEl nodo no fue encontrado." << endl;
-    }
 }
 
 void CLista::Mostrar() {
@@ -53,9 +52,8 @@ void CLista::Mostrar() {
         cout << "La lista está vacia.\n";
     }
     else if (orden == ASC) {
-        while (aux->anterior) {  //buscamos el principio de la lista
+        while (aux->anterior)  //buscamos el principio de la lista
             aux = aux->anterior;
-        }
 
         while (aux){
             aux->valor->mostrarDatos();
@@ -63,9 +61,8 @@ void CLista::Mostrar() {
         }
     }
     else{
-        while (aux->siguiente) {  //buscamos el final de la lista
+        while (aux->siguiente) //buscamos el final de la lista
             aux = aux->siguiente;
-        }
 
         while (aux){
             aux->valor->mostrarDatos();
