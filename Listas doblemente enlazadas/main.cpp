@@ -11,6 +11,7 @@ void mostrarMenu(char& opc);
 void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista);
 void modificarLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista);
 void visualizarLibro(int& clave, CLista& lista);
+void borrarLibro(int& clave, CLista& lista);
 void visualizarLista(CLista& lista);
 void salir(bool& r);
 
@@ -42,7 +43,7 @@ int main(void)
             visualizarLibro(clave, lista);
             break;
         case '4':
-            //borrarLibro(clave, lista);
+            borrarLibro(clave, lista);
             break;
         case '5':
             //borrarLista(lista);
@@ -110,6 +111,19 @@ void visualizarLibro(int& clave, CLista& lista) {
     cout << endl;
 
     lista.visualizarNodo(clave);
+
+    system("pause");
+}
+
+void borrarLibro(int& clave, CLista& lista)
+{
+    system("clear");
+    cout << "BORRAR LIBRO ----------------------------------- - \n" << endl;
+
+    cout << "Dijite la clave del libro: ";
+    cin >> clave;
+
+    lista.Borrar(clave);
 
     system("pause");
 }

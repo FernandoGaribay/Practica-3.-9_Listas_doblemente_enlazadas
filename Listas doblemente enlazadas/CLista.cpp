@@ -54,10 +54,31 @@ void CLista::visualizarNodo(int z) {
         cout << "\nEl nodo no fue encontrado." << endl;
 }
 
+void CLista::Borrar(int z) {
+    CNodo* aux = lista;
+
+    if (aux->siguiente == NULL && aux->valor->getClave() == z)
+        lista = NULL;
+    else{
+        if (aux->valor->getClave() == z) {
+            lista = lista->siguiente;
+            aux->siguiente->anterior = NULL;
+        }
+        else {
+            aux = buscarNodo(z);
+            aux->anterior->siguiente = aux->siguiente;
+            aux->siguiente->anterior = aux->anterior;
+
+            free(aux);
+            cout << "\nEl nodo ha sido borrado." << endl;
+        }
+    }
+}
+
 void CLista::Mostrar() {
     CNodo* aux = lista;
 
-    if (aux == NULL){
+    if (ListaVacia()){
         cout << "La lista está vacia.\n";
     }
     else if (orden == ASC) {
