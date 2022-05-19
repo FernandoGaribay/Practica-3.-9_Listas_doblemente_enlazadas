@@ -12,6 +12,7 @@ void introducirLibro(int& clave, string& titulo, string& autor, CLibro*& libro, 
 void modificarLibro(int& clave, string& titulo, string& autor, CLibro*& libro, CLista& lista);
 void visualizarLibro(int& clave, CLista& lista);
 void borrarLibro(int& clave, CLista& lista);
+void borrarLista(CLista& lista);
 void visualizarLista(CLista& lista);
 void salir(bool& r);
 
@@ -46,7 +47,7 @@ int main(void)
             borrarLibro(clave, lista);
             break;
         case '5':
-            //borrarLista(lista);
+            borrarLista(lista);
             break;
         case '6':
             visualizarLista(lista);
@@ -124,6 +125,15 @@ void borrarLibro(int& clave, CLista& lista)
     cin >> clave;
 
     lista.Borrar(clave);
+
+    system("pause");
+}
+
+void borrarLista(CLista& lista) {
+    system("clear");
+    cout << "BORRAR LISTA DE NODOS ---------------------------- \n" << endl;
+
+    lista.~CLista();
 
     system("pause");
 }

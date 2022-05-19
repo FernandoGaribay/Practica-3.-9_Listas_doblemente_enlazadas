@@ -1,19 +1,16 @@
 #include "CLista.h"
 
 CLista::CLista() {
-    primero = NULL;
-    anterior = NULL;
     CNodo* lista = NULL;
-
     orden = DESC;
 }
 
 CLista::~CLista() {
     CNodo* aux;
 
-    while (primero) {
-        aux = primero;
-        primero = primero->siguiente;
+    while (lista) {
+        aux = lista;
+        lista = lista->siguiente;
         delete aux;
     }
     cout << "\Lista de libros borrada." << endl;
