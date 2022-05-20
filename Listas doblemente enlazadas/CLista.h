@@ -13,12 +13,7 @@ public:
     void Mostrar();
     CNodo* buscarNodo(int z);
     bool ListaVacia();
-    
-    enum TOrden { ASC, DESC };
 
 protected:
-    TOrden orden;
     CNodo* lista;
-    CNodo* primero;
-    CNodo* anterior;
 };

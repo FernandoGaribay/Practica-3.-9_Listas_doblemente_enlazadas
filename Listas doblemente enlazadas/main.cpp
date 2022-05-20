@@ -141,6 +141,7 @@ void borrarLista(CLista& lista) {
 void visualizarLista(CLista& lista) {
     system("clear");
     cout << "VISUALIZAR TODOS LOS LIBROS -----------------------\n" << endl;
+
     lista.Mostrar();
     system("pause");
 }

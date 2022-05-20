@@ -1,9 +1,9 @@
 #include "CNodo.h"
 
-CNodo::CNodo(CLibro* libro, CNodo* sig = NULL, CNodo* ant = NULL)
+CNodo::CNodo(CLibro* libro)
 {
 	valor = libro;
 
-	siguiente = sig;
-	anterior = ant;
+	siguiente = NULL;
+	anterior = NULL;
 }

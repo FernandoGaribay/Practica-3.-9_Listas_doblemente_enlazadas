@@ -6,7 +6,7 @@ using namespace std;
 
 class CNodo {
 public:
-    CNodo(CLibro* libro, CNodo* sig, CNodo* ant);
+    CNodo(CLibro* libro);
 
 private:
     CLibro* valor;

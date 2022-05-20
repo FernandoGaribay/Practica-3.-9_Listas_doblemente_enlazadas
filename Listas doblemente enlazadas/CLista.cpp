@@ -2,7 +2,6 @@
 
 CLista::CLista() {
     CNodo* lista = NULL;
-    orden = DESC;
 }
 
 CLista::~CLista() {
@@ -17,7 +16,7 @@ CLista::~CLista() {
 }
 
 void CLista::InsertarInicio(CLibro* libro) {
-    CNodo* aux = new CNodo(libro, primero, anterior);
+    CNodo* aux = new CNodo(libro);
 
     if (ListaVacia()) {
         aux->valor = libro;
@@ -67,28 +66,18 @@ void CLista::Borrar(int z) {
             aux->siguiente->anterior = aux->anterior;
 
             free(aux);
-            cout << "\nEl nodo ha sido borrado." << endl;
         }
     }
+    cout << "\nEl nodo ha sido borrado." << endl;
 }
 
 void CLista::Mostrar() {
     CNodo* aux = lista;
 
-    if (ListaVacia()){
-        cout << "La lista está vacia.\n";
-    }
-    else if (orden == ASC) {
-        while (aux->anterior)  //buscamos el principio de la lista
-            aux = aux->anterior;
-
-        while (aux){
-            aux->valor->mostrarDatos();
-            aux = aux->siguiente;
-        }
-    }
+    if (ListaVacia())
+        cout << "La lista esta vacia.\n";
     else{
-        while (aux->siguiente) //buscamos el final de la lista
+        while (aux->siguiente)
             aux = aux->siguiente;
 
         while (aux){
